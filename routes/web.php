@@ -23,7 +23,4 @@ Route::get('/logout',function(){
 Auth::routes(['register' => false]);
 
 
-Route::get('/home', function(){
-    $user = Auth::user()->username;
-    echo $user;
-})->middleware('auth');
+Route::get('/home','HomeController@index');
