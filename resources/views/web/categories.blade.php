@@ -1,6 +1,10 @@
 @extends('layouts.web')
 
-@section('tittle','Home Page')
+@if($posts->total() > 0)
+@section('tittle',$category_name->category->name)
+@else
+@section('tittle',"কোন কিছু পাওয়া যায় নাই")
+@endif
 
 @section('css')
 
@@ -28,7 +32,7 @@
 
           <!-- Blog Post -->
 
-
+        @if($posts->total() > 0)
          @foreach ($posts as $post)
             <div class="card mb-4">
               @if(!empty($post->images))
@@ -41,12 +45,13 @@
               @endif
                   <div class="card-body">
                     <h2 class="card-title">{{ $post->post_tille  }}</h2>
-                      <p ><b>ক্যাটেগরি : </b> 
-                      <a href="category.php?catid=4">{{$post->category->name}}</a> </p>
+                      <p  ><b>ক্যাটেগরি : </b> 
+                      <a href="javascript:void(0)">{{$post->category->name}}</a> </p>
                       @php
-                         $text =  substr($post->post_description,0,100) ."......";
+                        $description = strlen(strip_tags($post->post_description)) > 100 ? substr( strip_tags($post->post_description),0,100)."....." : strip_tags($post->post_description);
+                        
                       @endphp
-                      <p id="description"  >{{ $post->post_description }}</p>
+                      <p id="description" style="margin: 5px;" >{{ $description }}</p>
                     <a href="news-details.php?nid=43" class="btn btn-primary"> আরও পড়ুন &rarr;</a>
                   </div>
                   <div class="card-footer text-muted">
@@ -58,8 +63,9 @@
                   </div>
             </div>
          @endforeach
-
-         
+        @else
+            <h2 ‍style="color: red;">কোন খবর পাওয়া যায় নাই </h2>
+        @endif 
             
                 <ul class="pagination justify-content-center mb-4">
                     {{ $posts->links() }}

@@ -89,7 +89,6 @@ class CategoryController extends Controller
                 $category->name = $request->name;
                 $category->serial = $request->sorting;
                 $category->is_show = $request->is_show != null ? 1 : 0;
-                $category->is_feature = $request->is_feature != null ? 1 :0 ;
                 $status = $category->save();
 
                 return response()->json(
@@ -129,6 +128,7 @@ class CategoryController extends Controller
         return view('admin.categories');   
 
     }
+    
     public function category_delete(Request $request){
 
         $result = Category::where('id',$request->id)->delete();

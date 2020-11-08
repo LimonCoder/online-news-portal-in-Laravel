@@ -23,7 +23,7 @@ class Category extends Model
         ->select(
             DB::raw('IF(cat.type = 1, cat.name, IF(cat.type = 2,subcat.name,null)) category_name'),
             DB::raw('IF(cat.type = 2, cat.name, null) sub_catgory_name'), "cat.id","cat.type","cat.serial",
-            "cat.is_show","cat.parent_id", "cat.is_feature")
+            "cat.is_show","cat.parent_id")
         ->leftJoin('categories AS subcat', 'subcat.id', '=', 'cat.parent_id')
         ->where('cat.deleted_at', NULL)
         ->orderBy('cat.serial', 'asc')

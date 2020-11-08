@@ -35,14 +35,10 @@ class PostController extends Controller
                     $btn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
                     return $btn;
                 })
-                ->addColumn('description',function($row){
-                    $description = substr($row->post_description ,0,30)."...";
-                    return strip_tags($description);
-                })
                 ->addColumn('date',function($row){
                     return date("d-m-Y", strtotime($row->created_at));
                 })
-                ->rawColumns(['action','description','date'])
+                ->rawColumns(['action','date'])
                 ->make(true);
     }
 
@@ -144,7 +140,7 @@ class PostController extends Controller
             $post->category_id  = $request->category;
             $post->subcategory_id  = $request->sub_category;
             $post->post_tille   = $request->postname;
-            $post->post_description   = $request->postdescription;
+            $post->post_description   = strip_tags($request->postdescription) ;
             
 
             $results = $post->save();

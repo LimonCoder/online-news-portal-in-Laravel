@@ -73,11 +73,10 @@
                             <thead>
                                 <tr>
                                     <th>নং</th>
-                                    <th>image</th>
+                                    <th>ছবি</th>
                                     <th>ক্যাটেগরি</th>
                                     <th>সাব-ক্যাটেগরি</th>
-                                    <th>post tittle</th>
-                                    <th>post description</th>
+                                    <th>পোস্টের নাম</th>
                                     <th>date</th>
                                      <th>আ্যকশন</th>
                                 </tr>
@@ -134,7 +133,6 @@
             {data: 'category_name', name: 'categoryname'},
             {data: 'Subcategroy_name', name: 'subcategoryname'},
             {data: 'post_tille', name: 'post_tille'},
-            {data: 'description', name: 'description'},
             {data: 'date', name: 'date'},
             {data: 'action', name: 'action', orderable: false, searchable: false,},
         ]

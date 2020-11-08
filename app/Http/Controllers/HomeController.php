@@ -27,16 +27,21 @@ class HomeController extends Controller
     public function index()
     {  
         $posts = Post::with(['category','subcategory'])->paginate(5);
-        // $data = DB::table('posts')
-        // ->join("categories AS CAT",function($join){
-        //     $join->on('CAT.id','=','posts.category_id');
-        // })
-        // ->join("categories AS SUBCAT",function($join){
-        //     $join->on('SUBCAT.id','=','posts.subcategory_id');
-        // })
-        // ->select("posts.*","CAT.name AS category_name","SUBCAT.name AS Subcategroy_name")
-        // ->whereNull('posts.deleted_at')->get();
-        
          return view('web.home',compact('posts'));
+    }
+
+    public function postshow_By_category($id){
+        $data['posts']  = Post::with(['category','subcategory'])->where(['category_id'=> $id, 'deleted_at'=> NULL ])->paginate(5);
+
+      
+
+        $data['category_name'] =  Post::with(['category','subcategory'])->where(['category_id'=> $id, 'deleted_at'=> NULL ])->first();
+
+        $data['totalpost'] = $data['posts']->total();
+     
+        return view('web.categories',$data);
+       
+
+        
     }
 }

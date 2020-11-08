@@ -23,9 +23,11 @@
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
+                    @foreach(App\Category::where(['type'=> 1, 'parent_id'=> NULL, 'is_show'=> 1, 'deleted_at'=> NULL ])->get() as $category )
                     <li>
-                      <a href="category.php?catid=12">Bangladesh</a>
+                      <a href="{{ url('/category/') }}/{{$category->id}}">{{$category->name}}</a>
                     </li>
+                    @endforeach
 
                   </ul>
                 </div>

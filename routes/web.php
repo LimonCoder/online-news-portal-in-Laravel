@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
+// Home Controller
 Route::get('/', 'HomeController@index' )->name('web.index');
+
+Route::get('/category/{id}', 'HomeController@postshow_By_category' )->where('id', '[0-9]+');
 
 Auth::routes(['register' => false]);
 
@@ -22,6 +25,7 @@ Route::get('/logout',function(){
     Auth::logout();
     return Redirect('/');
 });
+
 
 Route::get('/home', 'AdminController@index')->name('admin.home');
 

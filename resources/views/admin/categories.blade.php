@@ -93,18 +93,6 @@
                                         </div>
 
                                     </div>
-
-                                    <div class="form-group row">
-
-                                        <label for="is_feature" class="col-md-4 form-control-label">ফিচারড</label>
-                                        <div class="col-md-1">
-                                            <input type="checkbox" class="form-control" name="is_feature"
-                                                id="is_feature" value="1">
-
-                                            <span class="text-danger" id="is_feature_error"></span>
-                                        </div>
-
-                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <input type="hidden" name="row_id" id="row_id" value="">
@@ -133,7 +121,6 @@
                                     <th>সাব-ক্যাটেগরি</th>
                                     <th>সিরিয়াল</th>
                                     <th>স্ট্যাটাস</th>
-                                    <th>ফিচারড</th>
                                      <th>আ্যকশন</th>
                                 </tr>
                             </thead>
@@ -179,14 +166,6 @@
                             return '<span class="badge badge-danger badge-pill">Hide</span>';
                         }
                     }
-                },
-                { data: 'is_feature', name: 'is_feature',render:function(data, type, row, meta){
-                    if(row.is_feature == 1){
-                        return '<span class="badge badge-teal">ফিচারড</span>';
-                    }else{
-                        return '<span class="badge badge-danger badge-pill">নন-ফিচারড</span>';
-                    }
-                }
                 },
                 {
                     name: 'action',
