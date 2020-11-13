@@ -19,6 +19,17 @@ Route::get('/', 'HomeController@index' )->name('web.index');
 
 Route::get('/category/{id}', 'HomeController@postshow_By_category' )->where('id', '[0-9]+');
 
+Route::get('/post/{id}', 'HomeController@single_post' )->where('id', '[0-9]+');
+
+Route::post('/comment_store', 'HomeController@store' );
+Route::get('/comment_data', 'HomeController@comments_list' );
+Route::get('/reply_data', 'HomeController@fetch_reply' );
+
+
+
+
+
+// Auth 
 Auth::routes(['register' => false]);
 
 Route::get('/logout',function(){

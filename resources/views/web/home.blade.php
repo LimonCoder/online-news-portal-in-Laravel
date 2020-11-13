@@ -40,14 +40,13 @@
               
               @endif
                   <div class="card-body">
-                    <h2 class="card-title">{{ $post->post_tille  }}</h2>
+                    <h2 class="card-title" style="font-family: SutonnyMJ; " >{{ $post->post_tille  }}</h2>
                       <p ><b>ক্যাটেগরি : </b> 
                       <a href="category.php?catid=4">{{$post->category->name}}</a> </p>
-                      @php
-                         $text =  substr($post->post_description,0,100) ."......";
-                      @endphp
-                      <p id="description"  >{{ $post->post_description }}</p>
-                    <a href="news-details.php?nid=43" class="btn btn-primary"> আরও পড়ুন &rarr;</a>
+                      <?php
+                        $description = strlen(strip_tags($post->post_description)) > 300 ? substr( strip_tags($post->post_description),0,400)."....." : strip_tags($post->post_description); ?>
+                      <p id="description" style="font-family: SutonnyMJ; "  ><?=  $description; ?></p>
+                    <a href="{{url('/post/')}}/{{$post->id}}" class="btn btn-primary"> আরও পড়ুন &rarr;</a>
                   </div>
                   <div class="card-footer text-muted">
                     @php
