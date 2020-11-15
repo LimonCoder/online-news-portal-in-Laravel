@@ -199,9 +199,18 @@
 
 
    function comments_data() {
+      var row_id = $("#post_id").val();
+
+      $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+      });
+      
       $.ajax({
         url:'/comment_data',
-        type:'get',
+        type:'POST',
+        data:{post_id:row_id },
         dataType:'json',
         success:function(response){
           var map = '';

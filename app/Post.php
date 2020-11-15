@@ -25,6 +25,10 @@ class Post extends Model
         return $this->hasOne('App\Category','id','subcategory_id');
     }
 
+    public function comments(){
+        return $this->hasMany('App\Comments','post_id','id');
+    }
+
     
 
     

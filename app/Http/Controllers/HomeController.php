@@ -86,9 +86,10 @@ class HomeController extends Controller
     }
 
 
-    public function comments_list(){
+    public function comments_list(Request $request){
         $data =  DB::table('comment_reply_mapping')
                 ->whereNull('comment_id')
+                ->where('post_id',$request->post_id)
                 ->where('type',1)
                 ->whereNull('deleted_at')
                 ->get();

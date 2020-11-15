@@ -17,7 +17,7 @@
                                 
                                 <li><a href="{{route('category.home')}}"><i class="fa fa-menu" aria-hidden="true"></i><span>ক্যাটেগরি-সাব-ক্যাটেগরি</span></a></li>    
                                 <li><a href="{{route('post.index')}}"><i class="fa fa-book" aria-hidden="true"></i><span>পোস্ট :</span></a></li>    
-                                <li><a href=""><i class="fa fa-comment" aria-hidden="true"></i><span>কমেন্ট </span></a></li>    
+                                <li><a href="{{ route('admin.comments') }}"><i class="fa fa-comment" aria-hidden="true"></i><span>কমেন্ট </span></a></li>    
                                 <li><a href="{{route('post.index')}}"><i class="fa fa-users" aria-hidden="true"></i><span>ইউজার</span></a></li>      
                                 
     

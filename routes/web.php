@@ -22,8 +22,9 @@ Route::get('/category/{id}', 'HomeController@postshow_By_category' )->where('id'
 Route::get('/post/{id}', 'HomeController@single_post' )->where('id', '[0-9]+');
 
 Route::post('/comment_store', 'HomeController@store' );
-Route::get('/comment_data', 'HomeController@comments_list' );
+Route::post('/comment_data', 'HomeController@comments_list' );
 Route::get('/reply_data', 'HomeController@fetch_reply' );
+Route::post('/reply_store', 'CommentController@reply_store' );
 
 
 
@@ -53,5 +54,9 @@ Route::get('/post/create', 'PostController@create')->name('post.create');
 Route::post('/getsubcategorybycategory', 'PostController@getsubcategoryBycategory');
 Route::post('/post/store', 'PostController@store');
 Route::get('/post/postslist', 'PostController@posts_list');
+
+
+Route::get('/comments', 'CommentController@comments')->name('admin.comments');
+Route::get('/comments_list', 'CommentController@comments_list');
 
 
