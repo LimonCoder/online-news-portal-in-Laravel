@@ -11,6 +11,7 @@ use DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use DataTables;
+use custom_helper;
 
 class PostController extends Controller
 {

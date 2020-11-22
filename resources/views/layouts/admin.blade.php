@@ -28,6 +28,11 @@
     <link rel="stylesheet" href="{{asset('admin/vendor/toastr/toastr.min.css')}}">
     <!--Magnific popup-->
     <link rel="stylesheet" href="{{asset('admin/vendor/magnific-popup/magnific-popup.css')}}">
+
+    <!--Toaster css-->
+         <link rel="stylesheet" href="{{asset('admin/toaster/toastr.min.css')}}">
+    <!--Toaster css-->
+
     <!--TEMPLATE css-->
     <!-- ========================================================= -->
     <link rel="stylesheet" href="{{asset('admin/stylesheets/css/style.css')}}">
@@ -75,6 +80,7 @@
     <script src="{{ asset('admin/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--Examples-->
+    <script src="{{ asset('admin/toaster/toastr.min.js') }}"></script>
     <!-- <script src="{{ asset('admin/javascripts/examples/dashboard.js') }}"></script> -->
     @yield('js')
 </body>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
 use App\Comments;
+use custom_helper;
 
 class HomeController extends Controller
 {

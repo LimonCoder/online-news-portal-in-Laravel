@@ -60,3 +60,24 @@ Route::get('/comments', 'CommentController@comments')->name('admin.comments');
 Route::get('/comments_list', 'CommentController@comments_list');
 
 
+// Acl Controller
+
+Route::get('acl', 'AclController@index')->name('acl.index');
+Route::get('acl/create', 'AclController@create')->name('acl.create');
+Route::get('acl/lists', 'AclController@acl_list')->name('acl.data');
+Route::post('acl/store', 'AclController@store')->name('acl.store');
+Route::get('/results', 'AclController@result');
+
+// Users Controller
+Route::get('users', 'UserController@create')->name('users.index');
+Route::post('users/store', 'UserController@store')->name('users.create');
+
+
+
+
+
+
+
+
+
+

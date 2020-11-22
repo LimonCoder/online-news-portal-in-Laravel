@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use \DataTables;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
+use custom_helper;
 
 class CategoryController extends Controller
 {
